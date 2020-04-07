@@ -15,13 +15,13 @@ public class NavigationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_navigation);
 
         ArrayList<NavigationItem> navigationItems = new ArrayList<NavigationItem>();
-        navigationItems.add(new NavigationItem("What is COVID-19?",R.drawable.cudi));
-        navigationItems.add(new NavigationItem("What should you be doing?",R.drawable.gunna));
-        navigationItems.add(new NavigationItem("Important Data",R.drawable.rihanna));
-        navigationItems.add(new NavigationItem("Play Game",R.drawable.youngboy));
+        navigationItems.add(new NavigationItem("About COVID-19","Go",R.drawable.ic_launcher_background));
+        navigationItems.add(new NavigationItem("Protect Yourself","Go",R.drawable.ic_launcher_background));
+        navigationItems.add(new NavigationItem("Statistics","Go",R.drawable.ic_launcher_background));
+        navigationItems.add(new NavigationItem("Play Game","Go",R.drawable.ic_launcher_background));
 
-        ListView artistListView = findViewById(R.id.navigationListView);
+        ListView navigationListView = findViewById(R.id.navigationListView);
         NavigationAdapter navigationAdapter = new NavigationAdapter(this, navigationItems);
-        artistListView.setAdapter(navigationAdapter);
+        navigationListView.setAdapter(navigationAdapter);
     }
 }

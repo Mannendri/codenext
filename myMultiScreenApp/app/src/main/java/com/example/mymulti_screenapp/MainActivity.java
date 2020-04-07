@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openNavigationActivity(View view) {
-        Intent intentToOpenArtistActivity = new Intent(this, NavigationActivity.class);
-        startActivity(intentToOpenArtistActivity);
+        Intent intentToOpenNavigationActivity = new Intent(this, NavigationActivity.class);
+        startActivity(intentToOpenNavigationActivity);
     }
 }

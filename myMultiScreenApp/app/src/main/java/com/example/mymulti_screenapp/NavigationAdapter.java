@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -26,8 +27,11 @@ public class NavigationAdapter extends ArrayAdapter<NavigationItem> {
 
         ImageView navigationItemImageView = convertView.findViewById(R.id.list_item_image);
         TextView navigationItemTextView = convertView.findViewById(R.id.list_item_name);
+        Button navigationItemButton = convertView.findViewById(R.id.actionBtn);
+
         navigationItemImageView.setImageResource(currentNavigationItem.getImage());
         navigationItemTextView.setText(currentNavigationItem.getName());
+        navigationItemButton.setText(currentNavigationItem.getButtonText());
 
         return convertView;
 
