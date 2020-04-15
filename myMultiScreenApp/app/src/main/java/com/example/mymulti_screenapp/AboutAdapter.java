@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -22,12 +23,16 @@ public class AboutAdapter extends ArrayAdapter<AboutItem> {
         convertView = LayoutInflater.from(getContext()).inflate(R.layout.about_list_item, parent, false);
         AboutItem currentAboutItem = getItem(position);
 
-        ImageView categoryItemImageView = convertView.findViewById(R.id.list_item_photo);
-        TextView categoryItemTextView = convertView.findViewById(R.id.list_item_name);
-        categoryItemImageView.setImageResource(currentAboutItem.getPhoto());
-        categoryItemTextView.setText(currentAboutItem.getName());
+        ImageView aboutItemImage = convertView.findViewById(R.id.aboutItemImage);
+        TextView aboutItemTitle = convertView.findViewById(R.id.aboutItemTitle);
+        TextView aboutItemContent = convertView.findViewById(R.id.aboutItemContent);
+
+        aboutItemImage.setImageResource(currentAboutItem.getImage());
+        aboutItemTitle.setText(currentAboutItem.getTitle());
+        for (int i=0;i<currentAboutItem.getFacts().size();i++){
+            aboutItemContent.append(currentAboutItem.getFacts().get(i));
+        }
 
         return convertView;
-
     }
 }
