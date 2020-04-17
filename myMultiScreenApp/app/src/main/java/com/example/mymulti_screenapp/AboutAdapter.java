@@ -29,9 +29,7 @@ public class AboutAdapter extends ArrayAdapter<AboutItem> {
 
         aboutItemImage.setImageResource(currentAboutItem.getImage());
         aboutItemTitle.setText(currentAboutItem.getTitle());
-        for (int i=0;i<currentAboutItem.getFacts().size();i++){
-            aboutItemContent.append(currentAboutItem.getFacts().get(i));
-        }
+        aboutItemContent.setText(currentAboutItem.getContent());
 
         return convertView;
     }

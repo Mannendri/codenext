@@ -26,4 +26,9 @@ public class NavigationActivity extends AppCompatActivity {
         Intent intentToOpenAboutActivity = new Intent(this, AboutActivity.class);
         startActivity(intentToOpenAboutActivity);
     }
+
+    public void openPreventionActivity(View view) {
+        Intent intentToOpenPreventionActivity = new Intent(this, PreventionActivity.class);
+        startActivity(intentToOpenPreventionActivity);
+    }
 }

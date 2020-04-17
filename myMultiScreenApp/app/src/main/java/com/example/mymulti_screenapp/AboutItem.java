@@ -4,12 +4,12 @@ import java.util.ArrayList;
 
 public class AboutItem {
     String title;
-    ArrayList<String> facts;
+    String content;
     int image;
 
-    public AboutItem(String title, ArrayList<String> facts, int image) {
+    public AboutItem(String title, String content, int image) {
         this.title = title;
-        this.facts = facts;
+        this.content = content;
         this.image = image;
     }
 
@@ -21,12 +21,12 @@ public class AboutItem {
         this.title = title;
     }
 
-    public ArrayList<String> getFacts() {
-        return facts;
+    public String getContent() {
+        return content;
     }
 
-    public void setFacts(ArrayList<String> facts) {
-        this.facts = facts;
+    public void setContent(String content) {
+        this.content = content;
     }
 
     public int getImage() {
