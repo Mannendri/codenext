@@ -35,7 +35,10 @@ public class AboutActivity extends AppCompatActivity {
                           "\u2022Shortness of breath\n" +
                           "\u2022Aches and pains\n" +
                           "\u2022Sore throat\n\n" +
-                          "Few people will report diarrhea, nausea, or runny nose.";
+                          "Few people will report diarrhea, nausea, or runny nose.\n\n" +
+                          "The incubation period for COVID-19 ranges from 1-14 days. 'Incubation period' " +
+                          "refers to the time between catching the virus and beginning to have symptoms of the disease. " +
+                          "That being said, you may have COVID-19 and be unaware of it.";
         info.add(new AboutItem("What are its symptoms?", symptoms, R.drawable.cough));
 
         String highRisk = "The majority of those infected with COVID-19 will only experience mild symptoms " +

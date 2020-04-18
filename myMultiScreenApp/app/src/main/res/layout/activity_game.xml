@@ -55,6 +55,7 @@
         android:layout_marginTop="130dp"
         android:text="TRUE"
         android:textSize="20sp"
+        android:onClick="trueButtonClicked"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/questionTextView" />
 
@@ -66,6 +67,7 @@
         android:layout_marginEnd="90dp"
         android:text="FALSE"
         android:textSize="20sp"
+        android:onClick="falseButtonClicked"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/questionTextView" />
 
