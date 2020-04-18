@@ -31,4 +31,10 @@ public class NavigationActivity extends AppCompatActivity {
         Intent intentToOpenPreventionActivity = new Intent(this, PreventionActivity.class);
         startActivity(intentToOpenPreventionActivity);
     }
+
+    public void openGameActivity(View view) {
+        Intent intentToOpenGameActivity = new Intent(this, GameActivity.class);
+        startActivity(intentToOpenGameActivity);
+
+    }
 }
