@@ -1,14 +1,11 @@
 package com.example.mymulti_screenapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 
@@ -22,48 +19,64 @@ public class GameActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
-        questionTextView = findViewById(R.id.questionTextView);
 
+        questionTextView = findViewById(R.id.questionTextView);
         questions = new ArrayList<Question>();
         addQuestions();
-        poseQuestion();
-
+        currentIndex=0;
+        questionTextView.setText(questions.get(0).getQuestion());
     }
 
     private void addQuestions() {
-        questions.add(new Question("COVID-19 can be spread via 5G mobile networks.",false));
-        questions.add(new Question("It is possible to recover from COVID-19",true));
-        questions.add(new Question("A vaccine is going to save us from the current COVID-19 pandemic.",false));
-        questions.add(new Question("Washing your hands is more effective than using hand sanitizer.",true));
+        questions.add(new Question("Can COVID-19 be spread via 5G mobile networks?",false));
+        questions.add(new Question("Is it possible to recover from COVID-19?",true));
+        questions.add(new Question("Will exposing yourself to the sun or to high temperatures prevent COVID-19?",false));
+        questions.add(new Question("Is washing your hands more effective than using hand sanitizer?",true));
+        questions.add(new Question("Will cold weather kill COVID-19?",false));
+        questions.add(new Question("Will a vaccine against pneumonia protect you from COVID-19?",false));
+        questions.add(new Question("Can COVID-19 affect anyone regardless of ethnicity?",true));
+        questions.add(new Question("Are people of Asian descent more likely to be affected by COVID-19?",false));
+        questions.add(new Question("Are people of Asian descent more likely to be affected by COVID-19?",false));
     }
-    private void poseQuestion() {
-        int number = currentIndex;
-        while(currentIndex==number) {
-            currentIndex = (int) Math.random()*questions.size();
-        }
-        currentQuestion = questions.get(currentIndex);
-        questionTextView.setText(currentQuestion.getQuestion());
-    }
+
     public void trueButtonClicked(View view) {
-        boolean playerAnswer = true;
-        getOutcome(playerAnswer);
-        poseQuestion();
+        currentQuestion = questions.get(currentIndex);
+        Toast message;
+        if(currentQuestion.getAnswer()==true){
+            message = Toast.makeText(getApplicationContext(),"Correct!", Toast.LENGTH_SHORT);
+            message.show();
+        }
+        else{
+            message = Toast.makeText(getApplicationContext(),"Incorrect!", Toast.LENGTH_SHORT);
+            message.show();
+        }
+        if (currentIndex==questions.size()-1){
+            currentIndex=0;
+        }
+        else{
+            currentIndex++;
+        }
+        questionTextView.setText(questions.get(currentIndex).getQuestion());
+
     }
 
     public void falseButtonClicked(View view) {
-        boolean playerAnswer = false;
-        getOutcome(playerAnswer);
-        poseQuestion();
-    }
-
-    private void getOutcome(boolean playerAnswer) {
+        currentQuestion = questions.get(currentIndex);
         Toast message;
-        if (playerAnswer==currentQuestion.getAnswer()){
-            message = Toast.makeText(getApplicationContext(),"Correct!",Toast.LENGTH_LONG);
+        if(currentQuestion.getAnswer()==false){
+            message = Toast.makeText(getApplicationContext(),"Correct!", Toast.LENGTH_SHORT);
+            message.show();
         }
-        else {
-            message = Toast.makeText(getApplicationContext(),"Incorrect!",Toast.LENGTH_LONG);
+        else{
+            message = Toast.makeText(getApplicationContext(),"Incorrect!", Toast.LENGTH_SHORT);
+            message.show();
         }
-        message.show();
+        if (currentIndex==questions.size()-1){
+            currentIndex=0;
+        }
+        else{
+            currentIndex++;
+        }
+        questionTextView.setText(questions.get(currentIndex).getQuestion());
     }
 }

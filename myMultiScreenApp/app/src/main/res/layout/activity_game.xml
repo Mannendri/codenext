@@ -52,10 +52,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="90dp"
-        android:layout_marginTop="130dp"
+        android:layout_marginTop="110dp"
+        android:onClick="trueButtonClicked"
         android:text="TRUE"
         android:textSize="20sp"
-        android:onClick="trueButtonClicked"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/questionTextView" />
 
@@ -63,11 +63,11 @@
         android:id="@+id/falseButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="130dp"
+        android:layout_marginTop="110dp"
         android:layout_marginEnd="90dp"
+        android:onClick="falseButtonClicked"
         android:text="FALSE"
         android:textSize="20sp"
-        android:onClick="falseButtonClicked"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/questionTextView" />
 
