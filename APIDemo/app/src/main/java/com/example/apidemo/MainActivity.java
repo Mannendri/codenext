@@ -1,10 +1,12 @@
-package com.example.mymulti_screenapp;
-
-import android.os.Bundle;
-import android.widget.TextView;
-import android.widget.Toast;
+package com.example.apidemo;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -17,35 +19,36 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class StatisticsActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
 
-    TextView numberInfected;
-    TextView numberDeaths;
-    TextView numberRecovered;
-    private final String URL = "https://api.thevirustracker.com/free-api?global=stats";
+    TextView idTextView;
+    TextView infoTextView;
+    Button nextBtn;
+    private static final String URL = "https://cat-fact.herokuapp.com/Facts";
     private RequestQueue queue;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_statistics);
-        numberInfected = findViewById(R.id.numberInfected);
-        numberDeaths = findViewById(R.id.numberDeaths);
-        numberRecovered = findViewById(R.id.numberRecovered);
+        setContentView(R.layout.activity_main);
 
+        idTextView = findViewById(R.id.idTextView);
+        infoTextView = findViewById(R.id.infoTextView);
+        nextBtn = findViewById(R.id.nextBtn);
+
+    }
+
+    public void nextData(View view) {
         queue = Volley.newRequestQueue(this);
         StringRequest request = new StringRequest(Request.Method.GET, URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try{
                     JSONObject obj= new JSONObject(response);
-                    JSONArray info = obj.getJSONArray("results");
-
-                    String infectedData = info.getJSONObject(0).getString("total_cases");
-                    numberInfected.setText(infectedData);
-                    String deathData = info.getJSONObject(0).getString("total_deaths");
-                    numberDeaths.setText(deathData);
-                    String recoveredData = info.getJSONObject(0).getString("total_recovered");
-                    numberRecovered.setText(recoveredData);
+                    JSONArray info = obj.getJSONArray("all");
+                    String catInfo = info.getJSONObject(0).getString("text");
+                    String catID = info.getJSONObject(0).getString("_id");
+                    idTextView.setText(catID);
+                    infoTextView.setText(catInfo);
                 }
                 catch(JSONException e){
                     Toast message = Toast.makeText(getApplicationContext(),"Response failed!",Toast.LENGTH_SHORT);
