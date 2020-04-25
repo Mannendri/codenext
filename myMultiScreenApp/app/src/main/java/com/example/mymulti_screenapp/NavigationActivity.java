@@ -1,14 +1,11 @@
 package com.example.mymulti_screenapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ListView;
 
-import java.util.ArrayList;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class NavigationActivity extends AppCompatActivity {
 
@@ -36,5 +33,10 @@ public class NavigationActivity extends AppCompatActivity {
         Intent intentToOpenGameActivity = new Intent(this, GameActivity.class);
         startActivity(intentToOpenGameActivity);
 
+    }
+
+    public void openStatisticsActivity(View view) {
+        Intent intentToOpenStatisticsActivity = new Intent(this, StatisticsActivity.class);
+        startActivity(intentToOpenStatisticsActivity);
     }
 }

@@ -36,7 +36,6 @@ public class GameActivity extends AppCompatActivity {
         questions.add(new Question("Will a vaccine against pneumonia protect you from COVID-19?",false));
         questions.add(new Question("Can COVID-19 affect anyone regardless of ethnicity?",true));
         questions.add(new Question("Are people of Asian descent more likely to be affected by COVID-19?",false));
-        questions.add(new Question("Are people of Asian descent more likely to be affected by COVID-19?",false));
     }
 
     public void trueButtonClicked(View view) {
@@ -57,7 +56,6 @@ public class GameActivity extends AppCompatActivity {
             currentIndex++;
         }
         questionTextView.setText(questions.get(currentIndex).getQuestion());
-
     }
 
     public void falseButtonClicked(View view) {
