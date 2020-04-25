@@ -22,7 +22,7 @@ public class StatisticsActivity extends AppCompatActivity {
     TextView numberInfected;
     TextView numberDeaths;
     TextView numberRecovered;
-    private final String URL = "https://api.thevirustracker.com/free-api?global=stats";
+    private final String URL = "https://api.covid19api.com/world/total";
     private RequestQueue queue;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,13 +38,12 @@ public class StatisticsActivity extends AppCompatActivity {
             public void onResponse(String response) {
                 try{
                     JSONObject obj= new JSONObject(response);
-                    JSONArray info = obj.getJSONArray("results");
 
-                    String infectedData = info.getJSONObject(0).getString("total_cases");
+                    String infectedData = obj.getString("TotalConfirmed");
                     numberInfected.setText(infectedData);
-                    String deathData = info.getJSONObject(0).getString("total_deaths");
+                    String deathData = obj.getString("TotalDeaths");
                     numberDeaths.setText(deathData);
-                    String recoveredData = info.getJSONObject(0).getString("total_recovered");
+                    String recoveredData = obj.getString("TotalRecovered");
                     numberRecovered.setText(recoveredData);
                 }
                 catch(JSONException e){
