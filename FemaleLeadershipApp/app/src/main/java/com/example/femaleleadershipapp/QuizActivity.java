@@ -37,7 +37,7 @@ public class QuizActivity extends AppCompatActivity {
         questions.add(new Question("What is 2+2?",
                 new String[]{"5", "22", "4"},"C"));
         questions.add(new Question("What day is it today?",
-                new String[]{"Tuesday", "Monday", "Sunday"},"C"));
+                new String[]{"Tuesday", "Monday", "Sunday"},"B"));
     }
 
     public void buttonAClicked(View view) {
