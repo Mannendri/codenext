@@ -49,6 +49,7 @@ public class StatisticsActivity extends AppCompatActivity {
                 }
                 catch(JSONException e){
                     Toast message = Toast.makeText(getApplicationContext(),"Response failed!",Toast.LENGTH_SHORT);
+                    message.show();
                 }
             }
         }, new Response.ErrorListener() {

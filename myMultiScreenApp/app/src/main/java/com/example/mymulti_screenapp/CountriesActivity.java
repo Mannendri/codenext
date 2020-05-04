@@ -23,13 +23,13 @@ public class CountriesActivity extends AppCompatActivity {
     ArrayList<CountryItem> countries;
     private final String URL = "https://api.covid19api.com/summary";
     private RequestQueue queue;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_countries);
 
         countries = new ArrayList<>();
-
         //API STUFF
         queue = Volley.newRequestQueue(this);
         StringRequest request = new StringRequest(Request.Method.GET, URL, new Response.Listener<String>() {
@@ -50,6 +50,7 @@ public class CountriesActivity extends AppCompatActivity {
                 }
                 catch(JSONException e){
                     Toast message = Toast.makeText(getApplicationContext(),"Response failed!",Toast.LENGTH_SHORT);
+                    message.show();
                 }
             }
         }, new Response.ErrorListener() {
@@ -64,5 +65,6 @@ public class CountriesActivity extends AppCompatActivity {
         ListView countryListView = findViewById(R.id.countryListView);
         CountryAdapter countryAdapter = new CountryAdapter(this, countries);
         countryListView.setAdapter(countryAdapter);
+
     }
 }
